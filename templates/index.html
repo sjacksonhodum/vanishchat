@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vanish by sam</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Add the favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+
+<!-- Join Room -->
+<div id="join-room">
+    <img id="join-logo" src="{{ url_for('static', filename='logo.png') }}" alt="Vanish Chat Logo">
+    <input type="text" id="room-code" placeholder="Enter 4-Letter Room Code" maxlength="4">
+    <input type="text" id="username" placeholder="Enter Username">
+    <button onclick="joinRoom()">Join</button>
+    <div class="built-by">Built by @sjacksonhodum</div>
+</div>
+
+<!-- Chat Room -->
+<div id="chat-room" style="display:none;">
+    <div id="room-header">
+        <img id="logo" src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        <div id="active-users">Users: </div>
+        <button id="leave-room" onclick="leaveRoom()">Leave Room</button>
+    </div>
+    <div id="messages"></div>
+    <div class="built-by">Built by @sjacksonhodum</div>
+    <div id="message-box">
+        <input type="text" id="message-input" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

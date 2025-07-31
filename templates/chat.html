@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanish Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Join Room Section -->
+<div id="join-room">
+    <h2>Join a Room</h2>
+    <input type="text" id="room-code" placeholder="Enter 4-Letter Room Code" maxlength="4">
+    <input type="text" id="username" placeholder="Enter Username">
+    <button onclick="joinRoom()">Join</button>
+</div>
+
+<!-- Chat Room -->
+<div id="chat-room" style="display:none;">
+    <div id="room-header">
+        <span id="room-name"></span>
+        <span id="active-users">Users: </span>
+        <button id="leave-room" onclick="leaveRoom()">Leave Room</button>
+    </div>
+    <div id="messages"></div>
+    <div id="message-box">
+        <input type="text" id="message-input" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

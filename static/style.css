@@ -1,0 +1,175 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Join Room */
+#join-room {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    padding: 20px;
+    background: #1e1e1e;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+#join-logo {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    font-size: 16px;
+    background: #2a2a2a;
+    color: #e0e0e0;
+    text-align: center;
+    border: none;
+}
+
+button {
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    width: auto;
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Chat Room Header */
+#room-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #1e1e1e;
+    border-bottom: 2px solid #007bff;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+#logo {
+    height: 40px;
+}
+
+#leave-room {
+    background: #ff4444;
+}
+
+#leave-room:hover {
+    background: #cc0000;
+}
+
+/* Messages Container */
+#messages {
+    margin-top: 60px;
+    padding: 10px;
+    max-height: calc(100vh - 130px); /* Adjusts height dynamically */
+    overflow-y: auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Individual Message */
+.message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.message-text {
+    background: #333;
+    padding: 8px 12px;
+    border-radius: 8px;
+    max-width: 70%;
+    word-wrap: break-word;
+    font-size: 14px;
+}
+
+/* Fade Out Effect */
+.message.fade-out {
+    opacity: 0;
+}
+
+/* Reveal Button */
+.reveal-btn {
+    margin-left: 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.reveal-btn:hover {
+    background: #218838;
+}
+
+/* Message Box (Fixed to Bottom) */
+#message-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #1e1e1e;
+    border-top: 2px solid #007bff;
+}
+
+#message-input {
+    flex-grow: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    background: #2a2a2a;
+    color: #e0e0e0;
+    border: none;
+}
+/* Built by text */
+.built-by {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    margin: 10px 0;
+}
+
+#send-button {
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+#send-button:hover {
+    background: #0056b3;
+}
