@@ -1,35 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanish Chat</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Vanish Chat</title>
+  <meta name="theme-color" content="#0b0f14">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <div class="bg-gradient"></div>
 
-<!-- Join Room Section -->
-<div id="join-room">
-    <h2>Join a Room</h2>
+  <!-- Join Room -->
+  <div id="join-room" class="card elevate">
+    <div class="brand">vanish.</div>
+    <p class="subtitle">Ephemeral, playful chat. Nothing sticks.</p>
     <input type="text" id="room-code" placeholder="Enter 4-Letter Room Code" maxlength="4">
     <input type="text" id="username" placeholder="Enter Username">
-    <button onclick="joinRoom()">Join</button>
-</div>
+    <button class="primary" onclick="joinRoom()">Join</button>
+    <div class="built-by">Built by @sjacksonhodum</div>
+  </div>
 
-<!-- Chat Room -->
-<div id="chat-room" style="display:none;">
-    <div id="room-header">
-        <span id="room-name"></span>
-        <span id="active-users">Users: </span>
-        <button id="leave-room" onclick="leaveRoom()">Leave Room</button>
+  <!-- Chat Room -->
+  <div id="chat-room" style="display:none;">
+    <div id="room-header" class="glass">
+      <div class="left">
+        <span class="brand small">vanish.</span>
+        <span id="room-name" class="room-pill"></span>
+      </div>
+      <div id="active-users">Users: </div>
+      <div class="right" style="display:flex; gap:8px; align-items:center;">
+        <button id="keep-toggle" class="chip" title="All users must agree">Keep? 0/0</button>
+        <button id="destroy" class="danger hidden">Destroy</button>
+        <button id="leave-room" class="danger" onclick="leaveRoom()">Leave Room</button>
+      </div>
     </div>
-    <div id="messages"></div>
-    <div id="message-box">
-        <input type="text" id="message-input" placeholder="Type a message...">
-        <button onclick="sendMessage()">Send</button>
-    </div>
-</div>
 
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+    <div id="messages" aria-live="polite"></div>
+    <div class="built-by">Built by @sjacksonhodum</div>
+
+    <div id="effects-panel" class="effects hidden">
+      <button data-effect="none" class="chip selected">None</button>
+      <button data-effect="bubble" class="chip">Bubble</button>
+      <button data-effect="echo" class="chip">Echo</button>
+      <button data-effect="slam" class="chip">Slam</button>
+      <button data-effect="gentle" class="chip">Gentle</button>
+      <button data-effect="confetti" class="chip">Confetti</button>
+    </div>
+
+    <div id="message-box" class="glass">
+      <button id="effects-toggle" class="icon" aria-label="Effects">✨</button>
+      <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off">
+      <button class="primary" onclick="sendMessage()">Send</button>
+    </div>
+
+    <div id="typing-indicator" class="typing hidden">Someone is typing…</div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

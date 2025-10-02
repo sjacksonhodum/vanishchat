@@ -1,14 +1,18 @@
 # Vanish Chat
 
-A minimal, ephemeral web chat app built with Flask and Socket.IO.
+An ephemeral, playful web chat built with Flask and Socket.IO. Modern, mobile-first UI with iMessage-style reveals and fun effects.
 
 ## Features
 
 - Join chat rooms with a 4-letter code and username
 - Real-time messaging with Socket.IO
 - Messages are hidden until revealed, then fade out
-- User list updates in real time
-- Simple, modern UI
+- iMessage-like send effects: Bubble, Echo, Slam, Gentle, and Confetti
+- Effects panel and quick toggle
+- Typing indicators
+- Glassmorphism, subtle gradients, and micro-interactions
+- Mobile-friendly layout, sticky input bar, safe-area support
+- Live user list updates
 
 ## Project Structure
 
@@ -24,7 +28,7 @@ templates/
     index.html
 ```
 
-- `server.py`: Flask server with Socket.IO events for chat functionality
+- `server.py`: Flask server with Socket.IO events for chat functionality (including typing and effects pass-through)
 - `static/`: Static assets (JS, CSS, images)
 - `templates/`: HTML templates for the web interface
 
@@ -55,7 +59,7 @@ The app will be available at [http://localhost:5000](http://localhost:5000).
 1. Open the app in your browser.
 2. Enter a 4-letter room code and a username.
 3. Join the room and start chatting!
-4. Messages are hidden until you click "Reveal", after which they fade out.
+4. Messages are hidden until you click "Reveal", after which they gently animate and fade away.
 
 ## Customization
 
